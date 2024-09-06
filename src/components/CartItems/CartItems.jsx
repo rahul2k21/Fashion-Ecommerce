@@ -5,7 +5,7 @@ import remove_icon from '../Assets/cart_cross_icon.png'
 
 
 function CartItems() {
-    const {all_product,cartItems,removeCart}=useContext(ShopContext);
+    const {getTotalCartAmount,all_product,cartItems,removeCart}=useContext(ShopContext);
   return (
     <div className='cartItems'>
         <div className='cartitems-format-main'>
@@ -35,10 +35,39 @@ function CartItems() {
                 </div>
 
                 }
+                return null;
 
             })
         }
-      
+      <div className="cartitems-down">
+        <div className="cartitems-total">
+            <h1>Cart Total</h1>
+            <div>
+                <div className='cartitems-total-items'>
+                    <p>SubTotal</p>
+                    <p>${getTotalCartAmount()}</p>
+                </div>
+                <hr />
+                <div className='cartitems-total-items'>
+                    <p>Shiping Fee</p>
+                    <p>Free</p>
+                </div>
+                <hr />
+                <div className='cartitems-total-items'>
+                    <p>Total</p>
+                    <p>${getTotalCartAmount()}</p>
+                </div>
+            </div>
+            <button>PROCEED TO CHECHOUT</button>
+        </div>
+        <div className="cartitems-promocode">
+            <p>If you have a promocode, Enter it here</p>
+            <div className="cartitems-promobox">
+                <input type="text" placeholder='promo code' />
+                <button>Submit</button>
+            </div>
+        </div>
+      </div>
     </div>
   )
 }
